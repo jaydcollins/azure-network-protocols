@@ -18,7 +18,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>Operating Systems Used </h2>
 
-- Windows 10 (21H2)
+- Windows 10 (22H2)
 - Ubuntu Server 20.04
 
 <h2>High-Level Steps</h2>
@@ -32,9 +32,9 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>Actions and Observations</h2>
 
-![image](https://github.com/kphillip1/azure-network-protocols/assets/165929885/52bffc93-266a-4f01-a876-8b896f19165c)
-![image](https://github.com/kphillip1/azure-network-protocols/assets/165929885/89a5586e-df74-4319-acb9-93594fb37cd7)
-![image](https://github.com/kphillip1/azure-network-protocols/assets/165929885/b029c69e-9903-4400-b07e-aeef616add1b)
+<img width="585" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/406a7255-e240-4776-b6d3-38f25fb62957">
+
+<img width="1182" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/917d338a-53a8-45d3-9f6b-59c1f8136c8d">
 
 
 Part 1 (Create our Resources)
@@ -47,7 +47,8 @@ Part 1 (Create our Resources)
 - Observe Your Virtual Network within Network Watcher
 
 
-![image](https://github.com/kphillip1/azure-network-protocols/assets/165929885/63c84621-6a55-471b-9879-840f763447f2)
+<img width="642" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/6446148c-e9f4-4494-b1a6-26b5cab56733">
+
 
 
 Part 2 (Observe ICMP Traffic)
@@ -57,15 +58,18 @@ Part 2 (Observe ICMP Traffic)
 - Retrieve the private IP address of the Ubuntu VM and attempt to ping it from within the Windows 10 VM
 - Observe ping requests and replies within WireShark
 - From The Windows 10 VM, open command line or PowerShell and attempt to ping a public website (such as www.google.com) and observe the traffic in WireShark
-![image](https://github.com/kphillip1/azure-network-protocols/assets/165929885/e2e9b5c7-96dc-4bd8-89d2-7b1a43bef192)
+<img width="788" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/e7600f12-75ee-454f-8ffa-e6dc48ea8715">
+
 
 - Initiate a perpetual/non-stop ping from your Windows 10 VM to your Ubuntu VM
 - Open the Network Security Group your Ubuntu VM is using and disable incoming (inbound) ICMP traffic
-![image](https://github.com/kphillip1/azure-network-protocols/assets/165929885/d68e3125-e138-4ca7-aab8-6cf8109e5f56)
+<img width="803" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/21f637be-c324-482a-9da7-d9969e0fe477">
+
 
 - Back in the Windows 10 VM, observe the ICMP traffic in WireShark and the command line Ping activity
 
-![image](https://github.com/kphillip1/azure-network-protocols/assets/165929885/c080643e-9f25-43ae-8b29-ff76b54dfb54)
+<img width="1184" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/73633049-c5e7-4343-ac2d-94b1d84fd119">
+
 
 - Re-enable ICMP traffic for the Network Security Group your Ubuntu VM is using
 - Back in the Windows 10 VM, observe the ICMP traffic in WireShark and the command line Ping activity (should start working)
@@ -77,28 +81,34 @@ Part 3 (Observe SSH Traffic)
 - Type commands (username, pwd, etc) into the linux SSH connection and observe SSH traffic spam in WireShark
 - Exit the SSH connection by typing ‘exit’ and pressing [Enter]
 
-![image](https://github.com/kphillip1/azure-network-protocols/assets/165929885/f3332e0f-6bf9-4c53-bf7e-0d387e1232b3)
+<img width="673" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/03799996-129f-4d0a-b3a7-68aea4838ee3">
+<img width="849" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/a80f0314-5ff5-4307-9d8b-644983f27e54">
+
+
 
 
 Part 4 (Observe DHCP Traffic)
 - Back in Wireshark, filter for DHCP traffic only
 - From your Windows 10 VM, attempt to issue your VM a new IP address from the command line (ipconfig /renew)
 - Observe the DHCP traffic appearing in WireShark
-![image](https://github.com/kphillip1/azure-network-protocols/assets/165929885/6168b085-fee8-4c6e-8cc4-b88bec787d24)
+<img width="680" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/1cdd3365-9455-4ddc-8f84-77b4d858cf24">
+
 
 Part 5 (Observe DNS Traffic)
 - Back in Wireshark, filter for DNS traffic only
 - From your Windows 10 VM within a command line, use nslookup to see what google.com and disney.com’s IP addresses are
 - Observe the DNS traffic being show in WireShark
 
-![image](https://github.com/kphillip1/azure-network-protocols/assets/165929885/c2250f00-c212-4aa4-b303-118504a9b3d5)
+<img width="846" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/163fe170-4c06-499a-b64b-81ec182dbcdd">
+
 
 Part 6 (Observe RDP Traffic)
 - Back in Wireshark, filter for RDP traffic only (tcp.port == 3389)
 - <b>Pop Quiz!</b> Observe the immediate non-stop spam of traffic? Why do you think it’s non-stop spamming vs only showing traffic when you do an activity?
-![image](https://github.com/kphillip1/azure-network-protocols/assets/165929885/eacd07fd-54a1-464f-b10c-89c9914064aa)
+<img width="848" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/2c7eab8c-b16f-4ae1-8d55-9a65e5ab365d">
 
-- Answer: because the RDP (protocol) is constantly showing you a live stream from one computer to another, therefor traffic is always being transmitted
 
-<h2 align="center"> Nice work! We now know how to observe various forms of network traffic with Wireshark as well as some basics with Network Security Groups </h2>
+- Answer: because the RDP (protocol) is constantly showing you a live stream from one computer to another, therefore traffic is always being transmitted
+
+<h2 align="center"> Great Job! We now know how to observe various forms of network traffic with Wireshark as well as some basics with Network Security Groups </h2>
 
