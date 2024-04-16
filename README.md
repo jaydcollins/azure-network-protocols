@@ -28,7 +28,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 - Observe SSH Traffic
 - Observe DHCP Traffic
 - Observe DNS Traffic
-- Observe RDP Traffic (Pop quiz!)
+- Observe RDP Traffic (Quiz time!)
 
 <h2>Actions and Observations</h2>
 
@@ -43,7 +43,7 @@ Part 1 (Create our Resources)
 - While creating the VM, select the previously created Resource Group
 - While creating the VM, allow it to create a new Virtual Network (Vnet) and Subnet
 - Create a Linux (Ubuntu) VM
-- While create the VM, select the previously created Resource Group and Vnet
+- While creating the VM, select the previously created Resource Group and Vnet
 - Observe Your Virtual Network within Network Watcher
 
 
@@ -72,11 +72,11 @@ Part 2 (Observe ICMP Traffic)
 
 
 - Re-enable ICMP traffic for the Network Security Group your Ubuntu VM is using
-- Back in the Windows 10 VM, observe the ICMP traffic in WireShark and the command line Ping activity (should start working)
-- Stop the ping activity
+- In the Windows 10 VM, observe the ICMP traffic in WireShark and the command line Ping activity
+- Stop the ping activity by typing 'Ctrl+c'
 
 Part 3 (Observe SSH Traffic)
-- Back in Wireshark, filter for SSH traffic only
+- In Wireshark, filter for SSH traffic only
 - From your Windows 10 VM, “SSH into” your Ubuntu Virtual Machine (via its private IP address)
 - Type commands (username, pwd, etc) into the linux SSH connection and observe SSH traffic spam in WireShark
 - Exit the SSH connection by typing ‘exit’ and pressing [Enter]
@@ -88,27 +88,27 @@ Part 3 (Observe SSH Traffic)
 
 
 Part 4 (Observe DHCP Traffic)
-- Back in Wireshark, filter for DHCP traffic only
+- In Wireshark, filter for DHCP traffic only
 - From your Windows 10 VM, attempt to issue your VM a new IP address from the command line (ipconfig /renew)
 - Observe the DHCP traffic appearing in WireShark
 <img width="680" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/1cdd3365-9455-4ddc-8f84-77b4d858cf24">
 
 
 Part 5 (Observe DNS Traffic)
-- Back in Wireshark, filter for DNS traffic only
+- In Wireshark, filter for DNS traffic only
 - From your Windows 10 VM within a command line, use nslookup to see what google.com and disney.com’s IP addresses are
-- Observe the DNS traffic being show in WireShark
+- Observe the DNS traffic being shown in WireShark
 
 <img width="846" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/163fe170-4c06-499a-b64b-81ec182dbcdd">
 
 
 Part 6 (Observe RDP Traffic)
-- Back in Wireshark, filter for RDP traffic only (tcp.port == 3389)
-- <b>Pop Quiz!</b> Observe the immediate non-stop spam of traffic? Why do you think it’s non-stop spamming vs only showing traffic when you do an activity?
+- In Wireshark, filter for RDP traffic only (tcp.port == 3389)
+- <b>Quiz!</b> Observe the immediate spam of RDP traffic? Why do you think it’s spamming vs only showing traffic when you do an activity?
 <img width="848" alt="image" src="https://github.com/jaydcollins/azure-network-protocols/assets/164976272/2c7eab8c-b16f-4ae1-8d55-9a65e5ab365d">
 
 
-- Answer: because the RDP (protocol) is constantly showing you a live stream from one computer to another, therefore traffic is always being transmitted
+- Answer: Because the RDP protocol is constantly showing you a live stream from one computer to another, so traffic is continuously being transmitted.
 
-<h2 align="center"> Great Job! We now know how to observe various forms of network traffic with Wireshark as well as some basics with Network Security Groups </h2>
+<h2 align="center"> Great Job! We now know how to observe various forms of network traffic with Wireshark as well as some Network Security Groups basics. </h2>
 
